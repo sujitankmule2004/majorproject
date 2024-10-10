@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="invoice1.css">
+</head>
+<body>
+    <div class="invoice-form">
+        <h1>Create Invoice</h1>
+
+        <!-- Customer Details Input -->
+        <div class="customer-details">
+            <h2>Customer Details</h2>
+            <label for="customer-name">Name:</label>
+            <input type="text" id="customer-name" placeholder="Customer Name">
+
+            <label for="customer-address">Address:</label>
+            <input type="text" id="customer-address" placeholder="Customer Address">
+
+            <label for="customer-email">Email:</label>
+            <input type="email" id="customer-email" placeholder="Customer Email">
+        </div>
+
+        <!-- Add Order Items -->
+        <h2>Order Items</h2>
+        <div class="order-item">
+            <label for="item-description">Description:</label>
+            <input type="text" id="item-description" placeholder="Item Description">
+
+            <label for="item-quantity">Quantity:</label>
+            <input type="number" id="item-quantity" placeholder="Quantity">
+
+            <label for="item-price">Unit Price:</label>
+            <input type="number" id="item-price" placeholder="Unit Price">
+
+            <button onclick="addItem()">Add Item</button>
+        </div>
+
+        <!-- Table to Display Added Items -->
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="items-list">
+            </tbody>
+        </table>
+
+        <div class="total-section">
+            <p><strong>Subtotal:</strong> $<span id="subtotal">0</span></p>
+            <p><strong>Tax (10%):</strong> $<span id="tax">0</span></p>
+            <p><strong>Total:</strong> $<span id="total">0</span></p>
+        </div>
+
+        <button onclick="generateInvoice()">Generate Invoice</button>
+    </div>
+
+    <div class="invoice-box" id="invoice">
+        <h1>Invoice</h1>
+        <div class="company-info">
+            <p>Banquetino</p>
+            <p>123 Main Street, City, Country</p>
+            <p>Email: info@banquetino.com | Phone: +123456789</p>
+        </div>
+        <hr>
+
+        <div class="invoice-info">
+            <p><strong>Invoice Number:</strong> INV-001</p>
+            <p><strong>Date:</strong> <span id="invoice-date"></span></p>
+            <p><strong>Due Date:</strong> <span id="due-date"></span></p>
+        </div>
+
+        <div class="customer-info">
+            <p><strong>Customer Name:</strong> <span id="invoice-customer-name"></span></p>
+            <p><strong>Address:</strong> <span id="invoice-customer-address"></span></p>
+            <p><strong>Email:</strong> <span id="invoice-customer-email"></span></p>
+        </div>
+
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="invoice-items-list">
+            </tbody>
+        </table>
+
+        <div class="total-section">
+            <p><strong>Subtotal:</strong> $<span id="invoice-subtotal">0</span></p>
+            <p><strong>Tax (10%):</strong> $<span id="invoice-tax">0</span></p>
+            <p><strong>Total:</strong> $<span id="invoice-total">0</span></p>
+        </div>
+
+        <button onclick="window.print()">Print Invoice</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
